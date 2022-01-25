@@ -1,0 +1,4 @@
+Mark Vasia name3
+Terraform START Fri 6 Aug 17:20:10 CEST 2021
+172.31.12.88
+terraform finish : Fri 6 Aug 17:20:26 CEST 2021
