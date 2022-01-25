@@ -8,7 +8,7 @@ export AWS_ACCESS_KEY_ID="xxxxxxxxxxxxxxxxx"
 export AWS_SECRET_ACCESS_KEY="yyyyyyyyyyyyyyyyyyyyyyyyyyyy"
 export AWS_DEFAULT_REGION="zzzzzzzzz"
 
-Terraform Commands
+Terraform Commands:
 terraform init
 terraform plan
 terraform apply
@@ -21,7 +21,7 @@ terraform taint
 terraform refresh
 terraform validate
 
-Terraform State Commands
+Terraform State Commands:
 terraform state show
 terraform state list
 terraform state pull
@@ -31,7 +31,7 @@ terraform state push
 
 for x in $(terraform state list | grep xyz); do terraform state mv -state-out=”terraform.tfstate” $x $x; done
 
-Terraform Workspace Commands
+Terraform Workspace Commands:
 terraform workspace show
 terraform workspace list
 terraform workspace new
