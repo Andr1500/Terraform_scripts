@@ -4,6 +4,7 @@
 #VAULT_ADDR - The HashiCorp Vault server address (.i.e. - http://127.0.0.1:8200)
 #VAULT_TOKEN - The Root Token which we have generated when starting the HashiCorp Server.
 #main source of the script: https://jhooq.com/hashi-vault-aws-secret-terraform/#4-add-aws-secrets-inside-hashicorp-vault
+# and https://medium.com/@mitesh_shamra/terraform-security-using-vault-ed0fa1db4e09
 
 #the main reason of doing this is creation of role in Vault and granting access to the role for execution other terraform scrips.
 # In this case it is not necessary to share aws keys with other people, just granting access to Vault managed creds.
