@@ -5,6 +5,21 @@
 #VAULT_TOKEN - The Root Token which we have generated when starting the HashiCorp Server.
 #main source of the script: https://jhooq.com/hashi-vault-aws-secret-terraform/#4-add-aws-secrets-inside-hashicorp-vault
 
+#the main reason of doing this is creation of role in Vault and granting access to the role for execution other terraform scrips.
+# In this case it is not necessary to share aws keys with other people, just granting access to Vault managed creds.
+
+# For more security tfstate file of current folder can be stored remotely, f.e. in some S3 bucket:
+# provider "aws" {
+#   region = "eu-central-1"
+# }
+# terraform {
+#   backend "s3" {
+#     bucket = "QQQ-terraform-remote-state"   #bucket for terraform state file
+#     key    = "dev/terraform.tfstate"        #remote path of the file
+#     region = "eu-central-1"                 #region where the bucket is created
+#   }
+# }
+
 variable "aws_access_key" {}
 variable "aws_secret_key" {}
 variable "name" { default = "dynamic-aws-creds-vault-admin" }
