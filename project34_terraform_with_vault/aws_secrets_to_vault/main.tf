@@ -1,4 +1,4 @@
-#if is necessary to set up env vars before run the project:
+#it is necessary to set up env vars before run the project:
 #TF_VAR_aws_access_key - The AWS Access Key
 #TF_VAR_aws_secret_key - The AWS Secret Key
 #VAULT_ADDR - The HashiCorp Vault server address (.i.e. - http://127.0.0.1:8200)
