@@ -2,24 +2,28 @@
 
 terraform {
   required_providers {
-    aws = {
-    }
+    # aws = {
+    # }
     vault = {
     }
   }
 }
 
 data "vault_generic_secret" "aws_creds" {
-  path = "cubbyhole/aws"
+  path = "user-kv/andr1500/aws"
 }
 
-provider "aws" {
-  region     = data.vault_generic_secret.aws_creds.data["aws_region"]
-  access_key = data.vault_generic_secret.aws_creds.data["AWS_ACCESS_KEY_ID"]
-  secret_key = data.vault_generic_secret.aws_creds.data["AWS_SECRET_ACCESS_KEY"]
+data = {
+  region = semsitive(vault_generic_secret.aws_creds.data["aws_region"])
 }
 
-resource "aws_s3_bucket" "s3-bucket-vault-terraform" {
-  bucket        = "s3-bucket-vault-terraform_staticcreds"
-  force_destroy = true
-}
+# provider "aws" {
+#   region     = data.vault_generic_secret.aws_creds.data["aws_region"]
+#   access_key = data.vault_generic_secret.aws_creds.data["AWS_ACCESS_KEY_ID"]
+#   secret_key = data.vault_generic_secret.aws_creds.data["AWS_SECRET_ACCESS_KEY"]
+# }
+#
+# resource "aws_s3_bucket" "s3-bucket-vault-terraform" {
+#   bucket        = "s3-bucket-vault-terraform_staticcreds"
+#   force_destroy = true
+# }
